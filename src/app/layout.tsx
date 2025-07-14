@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Home, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import {
@@ -10,15 +10,14 @@ import {
   SidebarTrigger,
   SidebarContent,
   SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
   SidebarInset,
 } from "@/components/ui/sidebar";
-import VibeToolsMenu from "@/components/vibe-tools-menu";
+import React from "react";
+import { MainNav } from "@/components/main-nav";
 
 export const metadata: Metadata = {
-  title: "Vibe Forge",
-  description: "Creative tools for vibecoders",
+  title: "VibeTools",
+  description: "Handpicked tools for developers, indie makers, and designers.",
 };
 
 export default function RootLayout({
@@ -46,8 +45,8 @@ export default function RootLayout({
             <SidebarHeader>
               <div className="flex items-center gap-2">
                  <h1 className="font-headline font-semibold text-lg md:text-xl flex-1">
-                    <Link href="/" className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-                      Vibe Forge
+                    <Link href="/" className="flex items-center gap-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+                      <Sparkles className="text-primary"/> VibeTools
                     </Link>
                   </h1>
                 <SidebarTrigger />
@@ -55,13 +54,7 @@ export default function RootLayout({
             </SidebarHeader>
             <SidebarContent>
               <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton href="/" tooltip="Home">
-                    <Home />
-                    Home
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <VibeToolsMenu />
+                <MainNav />
               </SidebarMenu>
             </SidebarContent>
           </Sidebar>

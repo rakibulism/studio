@@ -49,92 +49,74 @@ export function MainNav() {
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <Link href="/" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive("/")} tooltip="Dashboard">
-            <div>
-              <Home />
-              Dashboard
-            </div>
+        <Link href="/">
+          <SidebarMenuButton isActive={isActive("/")} tooltip="Dashboard">
+            <Home />
+            Dashboard
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#all-tools" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#all-tools')} tooltip="All Tools">
-            <div>
-              <List />
-              All Tools
-            </div>
+        <Link href="/#all-tools">
+          <SidebarMenuButton isActive={isActive('/#all-tools')} tooltip="All Tools">
+            <List />
+            All Tools
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#design-to-code" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#design-to-code')} tooltip="Design to Code">
-            <div>
-              <Code2 />
-              Design to Code
-            </div>
+        <Link href="/#design-to-code">
+          <SidebarMenuButton isActive={isActive('/#design-to-code')} tooltip="Design to Code">
+            <Code2 />
+            Design to Code
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <Link href="/#ui-components-templates" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#ui-components-templates')} tooltip="UI Components">
-            <div>
-              <Component />
-              UI Components
-            </div>
+        <Link href="/#ui-components-templates">
+          <SidebarMenuButton isActive={isActive('/#ui-components-templates')} tooltip="UI Components">
+            <Component />
+            UI Components
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <Link href="/#frontend-starter-kits" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#frontend-starter-kits')} tooltip="Starter Kits">
-            <div>
-              <Layers />
-              Starter Kits
-            </div>
+        <Link href="/#frontend-starter-kits">
+          <SidebarMenuButton isActive={isActive('/#frontend-starter-kits')} tooltip="Starter Kits">
+            <Layers />
+            Starter Kits
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#ai-tools-for-devs" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#ai-tools-for-devs')} tooltip="AI Tools">
-            <div>
-              <Bot />
-              AI Tools
-            </div>
+        <Link href="/#ai-tools-for-devs">
+          <SidebarMenuButton isActive={isActive('/#ai-tools-for-devs')} tooltip="AI Tools">
+            <Bot />
+            AI Tools
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <Link href="/#sandbox-collaboration" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#sandbox-collaboration')} tooltip="Sandbox">
-            <div>
-              <Gamepad2 />
-              Sandbox
-            </div>
+        <Link href="/#sandbox-collaboration">
+          <SidebarMenuButton isActive={isActive('/#sandbox-collaboration')} tooltip="Sandbox">
+            <Gamepad2 />
+            Sandbox
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#deployment-baas" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#deployment-baas')} tooltip="Deploy & Backend">
-            <div>
-              <Rocket />
-              Deploy & Backend
-            </div>
+        <Link href="/#deployment-baas">
+          <SidebarMenuButton isActive={isActive('/#deployment-baas')} tooltip="Deploy & Backend">
+            <Rocket />
+            Deploy & Backend
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#dev-vibes" legacyBehavior passHref>
-          <SidebarMenuButton asChild isActive={isActive('/#dev-vibes')} tooltip="Dev Vibes">
-            <div>
-              <Heart />
-              Dev Vibes
-            </div>
+        <Link href="/#dev-vibes">
+          <SidebarMenuButton isActive={isActive('/#dev-vibes')} tooltip="Dev Vibes">
+            <Heart />
+            Dev Vibes
           </SidebarMenuButton>
         </Link>
       </SidebarMenuItem>

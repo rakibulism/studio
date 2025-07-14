@@ -7,9 +7,6 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarMenuSub,
-  SidebarMenuSubItem,
-  SidebarMenuSubButton,
 } from "@/components/ui/sidebar"
 import {
   Code2,
@@ -27,82 +24,86 @@ export function MainNav() {
   const pathname = usePathname()
 
   const isActive = (path: string) => {
+    // For hash links, we just want to check the base path.
+    if (path.includes("#")) {
+      return pathname === path.split("#")[0]
+    }
     return pathname === path
   }
 
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <Link href="/" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/")} tooltip="Dashboard">
+        <SidebarMenuButton asChild isActive={isActive("/")} tooltip="Dashboard">
+          <Link href="/">
             <Home />
             Dashboard
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#all-tools" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#all-tools")} tooltip="All Tools">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#all-tools'} tooltip="All Tools">
+          <Link href="/#all-tools">
             <List />
             All Tools
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#design-to-code" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#design-to-code")} tooltip="Design to Code">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#design-to-code'} tooltip="Design to Code">
+          <Link href="/#design-to-code">
             <Code2 />
             Design to Code
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <Link href="/#ui-components-templates" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#ui-components-templates")} tooltip="UI Components">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#ui-components-templates'} tooltip="UI Components">
+          <Link href="/#ui-components-templates">
             <Component />
             UI Components
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <Link href="/#frontend-starter-kits" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#frontend-starter-kits")} tooltip="Starter Kits">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#frontend-starter-kits'} tooltip="Starter Kits">
+          <Link href="/#frontend-starter-kits">
             <Layers />
             Starter Kits
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#ai-tools-for-devs" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#ai-tools-for-devs")} tooltip="AI Tools">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#ai-tools-for-devs'} tooltip="AI Tools">
+          <Link href="/#ai-tools-for-devs">
             <Bot />
             AI Tools
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <Link href="/#sandbox-collaboration" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#sandbox-collaboration")} tooltip="Sandbox">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#sandbox-collaboration'} tooltip="Sandbox">
+          <Link href="/#sandbox-collaboration">
             <Gamepad2 />
             Sandbox
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#deployment-baas" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#deployment-baas")} tooltip="Deploy & Backend">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#deployment-baas'} tooltip="Deploy & Backend">
+          <Link href="/#deployment-baas">
             <Rocket />
             Deploy & Backend
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <Link href="/#dev-vibes" passHref legacyBehavior>
-          <SidebarMenuButton isActive={isActive("/#dev-vibes")} tooltip="Dev Vibes">
+        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#dev-vibes'} tooltip="Dev Vibes">
+          <Link href="/#dev-vibes">
             <Heart />
             Dev Vibes
-          </SidebarMenuButton>
-        </Link>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
   )

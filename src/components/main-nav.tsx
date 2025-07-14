@@ -41,7 +41,7 @@ export function MainNav() {
     if (path.includes("#")) {
       const [basePath, hashPath] = path.split("#")
       // Check if the base path matches and the hash matches
-      return (pathname === basePath || basePath === '') && hash === `#${hashPath}`
+      return (pathname === basePath || (basePath === '' && pathname === '/')) && hash === `#${hashPath}`
     }
     return pathname === path && hash === ""
   }

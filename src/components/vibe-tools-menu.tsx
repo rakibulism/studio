@@ -12,6 +12,8 @@ import {
   Sparkles,
   Type,
   ChevronRight,
+  ImageIcon,
+  Crop,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -45,6 +47,16 @@ const tools = [
     title: "SVG Shape Builder",
     href: "/svg-shape-builder",
     icon: <Shapes className="size-4" />,
+  },
+  {
+    title: "Image Resizer",
+    href: "/image-resizer",
+    icon: <Crop className="size-4" />,
+  },
+  {
+    title: "Image Inspiration",
+    href: "/image-inspiration",
+    icon: <ImageIcon className="size-4" />,
   },
 ];
 

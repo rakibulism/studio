@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Palette, Pipette, Type, Shapes, ArrowRight } from 'lucide-react';
+import { Palette, Pipette, Type, Shapes, ArrowRight, Image as ImageIcon, VenetianMask, Crop } from 'lucide-react';
 
 const tools = [
   {
@@ -29,6 +29,18 @@ const tools = [
     href: '/svg-shape-builder',
     icon: <Shapes className="h-8 w-8 text-primary" />,
   },
+    {
+    title: 'Image Resizer & Converter',
+    description: 'Quickly resize, convert, and compress your images online.',
+    href: '/image-resizer',
+    icon: <Crop className="h-8 w-8 text-primary" />,
+  },
+  {
+    title: 'Image Inspiration Board',
+    description: 'Generate a mood board of images from a text prompt using AI.',
+    href: '/image-inspiration',
+    icon: <ImageIcon className="h-8 w-8 text-primary" />,
+  },
 ];
 
 export default function Home() {
@@ -42,7 +54,7 @@ export default function Home() {
           A suite of creative tools for vibecoders. Unleash your creativity.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 w-full max-w-6xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 w-full max-w-6xl">
         {tools.map((tool) => (
           <Link href={tool.href} key={tool.title} className="group rounded-lg">
             <Card className="h-full bg-card/50 backdrop-blur-sm border-border/20 hover:border-primary/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/20 flex flex-col">

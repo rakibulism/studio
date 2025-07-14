@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 
 import {
   SidebarMenu,
@@ -22,88 +23,102 @@ import {
 
 export function MainNav() {
   const pathname = usePathname()
+  const [hash, setHash] = useState("")
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setHash(window.location.hash)
+    }
+    window.addEventListener('hashchange', handleHashChange)
+    // Set initial hash
+    handleHashChange()
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
 
   const isActive = (path: string) => {
-    // For hash links, we just want to check the base path.
     if (path.includes("#")) {
-      return pathname === path.split("#")[0]
+      const [basePath, hashPath] = path.split("#")
+      // Check if the base path matches and the hash matches
+      return pathname === basePath && hash === `#${hashPath}`
     }
-    return pathname === path
+    return pathname === path && hash === ""
   }
 
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={isActive("/")} tooltip="Dashboard">
-          <Link href="/">
-            <Home />
-            Dashboard
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/">
+            <SidebarMenuButton isActive={isActive("/")} tooltip="Dashboard">
+                <Home />
+                Dashboard
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#all-tools'} tooltip="All Tools">
-          <Link href="/#all-tools">
-            <List />
-            All Tools
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#all-tools">
+            <SidebarMenuButton isActive={hash ==='#all-tools'} tooltip="All Tools">
+                <List />
+                All Tools
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#design-to-code'} tooltip="Design to Code">
-          <Link href="/#design-to-code">
-            <Code2 />
-            Design to Code
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#design-to-code">
+            <SidebarMenuButton isActive={hash ==='#design-to-code'} tooltip="Design to Code">
+                <Code2 />
+                Design to Code
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#ui-components-templates'} tooltip="UI Components">
-          <Link href="/#ui-components-templates">
-            <Component />
-            UI Components
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#ui-components-templates">
+            <SidebarMenuButton isActive={hash ==='#ui-components-templates'} tooltip="UI Components">
+                <Component />
+                UI Components
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#frontend-starter-kits'} tooltip="Starter Kits">
-          <Link href="/#frontend-starter-kits">
-            <Layers />
-            Starter Kits
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#frontend-starter-kits">
+            <SidebarMenuButton isActive={hash ==='#frontend-starter-kits'} tooltip="Starter Kits">
+                <Layers />
+                Starter Kits
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#ai-tools-for-devs'} tooltip="AI Tools">
-          <Link href="/#ai-tools-for-devs">
-            <Bot />
-            AI Tools
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#ai-tools-for-devs">
+            <SidebarMenuButton isActive={hash ==='#ai-tools-for-devs'} tooltip="AI Tools">
+                <Bot />
+                AI Tools
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
        <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#sandbox-collaboration'} tooltip="Sandbox">
-          <Link href="/#sandbox-collaboration">
-            <Gamepad2 />
-            Sandbox
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#sandbox-collaboration">
+            <SidebarMenuButton isActive={hash ==='#sandbox-collaboration'} tooltip="Sandbox">
+                <Gamepad2 />
+                Sandbox
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#deployment-baas'} tooltip="Deploy & Backend">
-          <Link href="/#deployment-baas">
-            <Rocket />
-            Deploy & Backend
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#deployment-baas">
+            <SidebarMenuButton isActive={hash ==='#deployment-baas'} tooltip="Deploy & Backend">
+                <Rocket />
+                Deploy & Backend
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
       <SidebarMenuItem>
-        <SidebarMenuButton asChild isActive={pathname.endsWith("/") && typeof window !== 'undefined' && window.location.hash === '#dev-vibes'} tooltip="Dev Vibes">
-          <Link href="/#dev-vibes">
-            <Heart />
-            Dev Vibes
-          </Link>
-        </SidebarMenuButton>
+        <Link href="/#dev-vibes">
+            <SidebarMenuButton isActive={hash ==='#dev-vibes'} tooltip="Dev Vibes">
+                <Heart />
+                Dev Vibes
+            </SidebarMenuButton>
+        </Link>
       </SidebarMenuItem>
     </SidebarMenu>
   )
